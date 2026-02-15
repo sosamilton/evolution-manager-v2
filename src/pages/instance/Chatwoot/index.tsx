@@ -44,6 +44,12 @@ const formSchema = z.object({
   daysLimitImportMessages: z.coerce.number().optional(),
   autoCreate: z.boolean(),
   ignoreJids: z.array(z.string()).default([]),
+  coordinationSettings: z.object({
+    checkAgent: z.boolean().optional(),
+    autoPause: z.boolean().optional(),
+    autoResolve: z.boolean().optional(),
+    manageEnabled: z.boolean().optional(),
+  }).optional(),
 });
 type FormSchema = z.infer<typeof formSchema>;
 
@@ -77,6 +83,12 @@ function Chatwoot() {
       daysLimitImportMessages: 7,
       autoCreate: true,
       ignoreJids: [],
+      coordinationSettings: {
+        checkAgent: true,
+        autoPause: true,
+        autoResolve: true,
+        manageEnabled: true,
+      },
     },
   });
 
@@ -101,6 +113,12 @@ function Chatwoot() {
         daysLimitImportMessages: chatwoot.daysLimitImportMessages || 7,
         autoCreate: chatwoot.autoCreate || false,
         ignoreJids: chatwoot.ignoreJids,
+        coordinationSettings: {
+          checkAgent: chatwoot.coordinationSettings?.checkAgent ?? true,
+          autoPause: chatwoot.coordinationSettings?.autoPause ?? true,
+          autoResolve: chatwoot.coordinationSettings?.autoResolve ?? true,
+          manageEnabled: chatwoot.coordinationSettings?.manageEnabled ?? true,
+        },
       };
 
       form.reset(chatwootData);
@@ -129,6 +147,7 @@ function Chatwoot() {
       daysLimitImportMessages: data.daysLimitImportMessages || 7,
       autoCreate: data.autoCreate,
       ignoreJids: data.ignoreJids,
+      coordinationSettings: data.coordinationSettings,
     };
 
     await createChatwoot(
@@ -202,6 +221,37 @@ function Chatwoot() {
               </FormInput>
               <FormTags name="ignoreJids" label={t("chatwoot.form.ignoreJids.label")} placeholder={t("chatwoot.form.ignoreJids.placeholder")} />
               <FormSwitch name="autoCreate" label={t("chatwoot.form.autoCreate.label")} className="w-full justify-between" helper={t("chatwoot.form.autoCreate.description")} />
+            </div>
+          </div>
+          <div>
+            <Separator className="my-4" />
+            <h4 className="mb-1 text-md font-medium">{t("chatwoot.form.coordinationTitle")}</h4>
+            <p className="mb-2 text-sm text-muted-foreground">{t("chatwoot.form.coordinationDescription")}</p>
+            <div className="mx-4 space-y-2 divide-y [&>*]:px-4 [&>*]:py-2">
+              <FormSwitch
+                name="coordinationSettings.checkAgent"
+                label={t("chatwoot.form.checkAgent.label")}
+                className="w-full justify-between"
+                helper={t("chatwoot.form.checkAgent.description")}
+              />
+              <FormSwitch
+                name="coordinationSettings.autoPause"
+                label={t("chatwoot.form.autoPause.label")}
+                className="w-full justify-between"
+                helper={t("chatwoot.form.autoPause.description")}
+              />
+              <FormSwitch
+                name="coordinationSettings.autoResolve"
+                label={t("chatwoot.form.autoResolve.label")}
+                className="w-full justify-between"
+                helper={t("chatwoot.form.autoResolve.description")}
+              />
+              <FormSwitch
+                name="coordinationSettings.manageEnabled"
+                label={t("chatwoot.form.manageEnabled.label")}
+                className="w-full justify-between"
+                helper={t("chatwoot.form.manageEnabled.description")}
+              />
             </div>
           </div>
           <div className="mx-4 flex justify-end">

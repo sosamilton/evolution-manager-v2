@@ -363,6 +363,24 @@
       "autoCreate": {
         "label": "Criação Automática",
         "description": "Criar automaticamente a integração com o Chatwoot ao salvar"
+      },
+      "coordinationTitle": "Coordenação Bot-Agente",
+      "coordinationDescription": "Configuração do comportamento entre bots e agentes humanos no Chatwoot",
+      "checkAgent": {
+        "label": "Verificar Agente",
+        "description": "Verificar se há um agente humano atribuído antes de ativar o bot"
+      },
+      "autoPause": {
+        "label": "Auto-Pausar Bot",
+        "description": "Pausar o bot automaticamente quando um agente responde pelo Chatwoot"
+      },
+      "autoResolve": {
+        "label": "Auto-Resolver Conversa",
+        "description": "Resolver a conversa no Chatwoot quando o fluxo do bot termina"
+      },
+      "manageEnabled": {
+        "label": "Endpoint de Gerenciamento",
+        "description": "Habilitar o endpoint /chatbot/manage para controle externo (ex: Typebot HTTP Request)"
       }
     },
     "button": {

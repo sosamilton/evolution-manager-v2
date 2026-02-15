@@ -387,6 +387,12 @@ export type Chatwoot = {
   organization: string;
   logo: string;
   ignoreJids?: string[];
+  coordinationSettings?: {
+    checkAgent?: boolean;
+    autoPause?: boolean;
+    autoResolve?: boolean;
+    manageEnabled?: boolean;
+  };
 };
 
 export type ModelOpenai = {
