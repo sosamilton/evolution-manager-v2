@@ -365,22 +365,31 @@
         "description": "Criar automaticamente a integração com o Chatwoot ao salvar"
       },
       "coordinationTitle": "Coordenação Bot-Agente",
-      "coordinationDescription": "Configuração do comportamento entre bots e agentes humanos no Chatwoot",
+      "coordinationDescription": "Controla como bots e agentes humanos se coordenam no Chatwoot. Use os presets para configurações comuns ou ajuste cada opção individualmente.",
+      "presets": {
+        "full": "Coordenação completa",
+        "botOnly": "Só bot (sem coordenação)",
+        "disabled": "Tudo desativado"
+      },
       "checkAgent": {
-        "label": "Verificar Agente",
-        "description": "Verificar se há um agente humano atribuído antes de ativar o bot"
+        "label": "Verificar Agente Atribuído",
+        "description": "Se houver um agente atribuído no Chatwoot, o bot não responde e deixa o humano atender. Ideal para evitar que o bot interfira com agentes ativos."
       },
       "autoPause": {
-        "label": "Auto-Pausar Bot",
-        "description": "Pausar o bot automaticamente quando um agente responde pelo Chatwoot"
+        "label": "Auto-Pausar ao Responder Agente",
+        "description": "Quando um agente responde pelo Chatwoot, o bot é pausado automaticamente. A conversa fica exclusivamente para o agente."
       },
       "autoResolve": {
-        "label": "Auto-Resolver Conversa",
-        "description": "Resolver a conversa no Chatwoot quando o fluxo do bot termina"
+        "label": "Auto-Resolver ao Terminar Fluxo",
+        "description": "Ao completar o fluxo do bot (sem mais perguntas), a conversa no Chatwoot é resolvida automaticamente. Não se aplica se houve derivação para humano."
+      },
+      "detectTransferMarker": {
+        "label": "Detectar Derivação [transfer_human]",
+        "description": "Detecta o marcador [transfer_human] em mensagens do Typebot para derivar automaticamente para um agente. Não requer configuração HTTP no Typebot."
       },
       "manageEnabled": {
-        "label": "Endpoint de Gerenciamento",
-        "description": "Habilitar o endpoint /chatbot/manage para controle externo (ex: Typebot HTTP Request)"
+        "label": "Endpoint de Gerenciamento REST",
+        "description": "Habilita o endpoint /manage/action para controle externo via API (transfer_human, pause_bot, resume_bot, resolve_bot)."
       }
     },
     "button": {

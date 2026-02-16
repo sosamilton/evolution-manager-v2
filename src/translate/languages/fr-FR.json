@@ -364,22 +364,31 @@
         "description": "Créer automatiquement l'intégration Chatwoot lors de l'enregistrement"
       },
       "coordinationTitle": "Coordination Bot-Agent",
-      "coordinationDescription": "Configuration du comportement entre les bots et les agents humains dans Chatwoot",
+      "coordinationDescription": "Contrôlez comment les bots et les agents humains se coordonnent dans Chatwoot. Utilisez les préréglages pour les configurations courantes ou ajustez chaque option individuellement.",
+      "presets": {
+        "full": "Coordination complète",
+        "botOnly": "Bot seul (sans coordination)",
+        "disabled": "Tout désactivé"
+      },
       "checkAgent": {
-        "label": "Vérifier l'Agent",
-        "description": "Vérifier si un agent humain est assigné avant d'activer le bot"
+        "label": "Vérifier l'Agent Assigné",
+        "description": "S'il y a un agent assigné dans Chatwoot, le bot ne répond pas et laisse l'humain prendre en charge. Idéal pour éviter que le bot n'interfère avec les agents actifs."
       },
       "autoPause": {
-        "label": "Auto-Pause Bot",
-        "description": "Mettre automatiquement le bot en pause lorsqu'un agent répond depuis Chatwoot"
+        "label": "Auto-Pause à la Réponse Agent",
+        "description": "Lorsqu'un agent répond depuis Chatwoot, le bot est automatiquement mis en pause. La conversation devient exclusive à l'agent."
       },
       "autoResolve": {
-        "label": "Auto-Résoudre Conversation",
-        "description": "Résoudre la conversation Chatwoot lorsque le flux du bot se termine"
+        "label": "Auto-Résoudre à la Fin du Flux",
+        "description": "Lorsque le flux du bot se termine (plus de questions), la conversation Chatwoot est automatiquement résolue. Ne s'applique pas s'il y a eu un transfert humain."
+      },
+      "detectTransferMarker": {
+        "label": "Détecter le Marqueur [transfer_human]",
+        "description": "Détecte le marqueur [transfer_human] dans les messages Typebot pour transférer automatiquement vers un agent humain. Aucune configuration HTTP requise dans Typebot."
       },
       "manageEnabled": {
-        "label": "Endpoint de Gestion",
-        "description": "Activer l'endpoint /chatbot/manage pour le contrôle externe (ex: Typebot HTTP Request)"
+        "label": "Endpoint de Gestion REST",
+        "description": "Active l'endpoint /manage/action pour le contrôle externe via API (transfer_human, pause_bot, resume_bot, resolve_bot)."
       }
     },
     "button": {
