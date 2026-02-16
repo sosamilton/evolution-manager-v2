@@ -6,13 +6,13 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:80"
-    container_name: evolution-manager-v2
+      - "3030:80"
+    image: evolution-manager:demo1
     restart: unless-stopped
     environment:
       - NODE_ENV=production
     networks:
-      - evolution-network
+      - evolution-net
 
   # Optional: Include Evolution API for complete stack
   # Uncomment the section below if you want to run Evolution API alongside the manager
@@ -32,7 +32,7 @@ services:
   #     - postgres
   #     - redis
   #   networks:
-  #     - evolution-network
+  #     - evolution-net
 
   # postgres:
   #   image: postgres:15-alpine
@@ -47,7 +47,7 @@ services:
   #   ports:
   #     - "5432:5432"
   #   networks:
-  #     - evolution-network
+  #     - evolution-net
 
   # redis:
   #   image: redis:7-alpine
@@ -56,11 +56,11 @@ services:
   #   ports:
   #     - "6379:6379"
   #   networks:
-  #     - evolution-network
+  #     - evolution-net
 
 networks:
-  evolution-network:
-    driver: bridge
+  evolution-net:
+    external: true
 
 # volumes:
 #   postgres_data:
