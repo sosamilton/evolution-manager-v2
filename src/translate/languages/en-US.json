@@ -383,6 +383,33 @@
       "autoCreate": {
         "label": "Auto Create",
         "description": "Automatically create chatwoot integration on save"
+      },
+      "coordinationTitle": "Bot-Agent Coordination",
+      "coordinationDescription": "Control how bots and human agents coordinate in Chatwoot. Use presets for common configurations or adjust each option individually.",
+      "presets": {
+        "full": "Full coordination",
+        "botOnly": "Bot only (no coordination)",
+        "disabled": "All disabled"
+      },
+      "checkAgent": {
+        "label": "Check Assigned Agent",
+        "description": "If an agent is assigned in Chatwoot, the bot won't respond and lets the human handle it. Ideal to prevent the bot from interfering with active agents."
+      },
+      "autoPause": {
+        "label": "Auto-Pause on Agent Reply",
+        "description": "When an agent replies from Chatwoot, the bot is automatically paused. The conversation becomes exclusive to the agent."
+      },
+      "autoResolve": {
+        "label": "Auto-Resolve on Flow End",
+        "description": "When the bot flow completes (no more questions), the Chatwoot conversation is automatically resolved. Does not apply if there was a human transfer."
+      },
+      "detectTransferMarker": {
+        "label": "Detect [transfer_human] Marker",
+        "description": "Detects the [transfer_human] marker in Typebot messages to automatically transfer to a human agent. No HTTP configuration needed in Typebot."
+      },
+      "manageEnabled": {
+        "label": "REST Management Endpoint",
+        "description": "Enable the /manage/action endpoint for external API control (transfer_human, pause_bot, resume_bot, resolve_bot)."
       }
     },
     "button": {
