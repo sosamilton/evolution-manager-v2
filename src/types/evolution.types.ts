@@ -391,6 +391,7 @@ export type Chatwoot = {
     checkAgent?: boolean;
     autoPause?: boolean;
     autoResolve?: boolean;
+    detectTransferMarker?: boolean;
     manageEnabled?: boolean;
   };
 };

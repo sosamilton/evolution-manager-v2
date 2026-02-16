@@ -48,6 +48,7 @@ const formSchema = z.object({
     checkAgent: z.boolean().optional(),
     autoPause: z.boolean().optional(),
     autoResolve: z.boolean().optional(),
+    detectTransferMarker: z.boolean().optional(),
     manageEnabled: z.boolean().optional(),
   }).optional(),
 });
@@ -87,6 +88,7 @@ function Chatwoot() {
         checkAgent: true,
         autoPause: true,
         autoResolve: true,
+        detectTransferMarker: true,
         manageEnabled: true,
       },
     },
@@ -117,6 +119,7 @@ function Chatwoot() {
           checkAgent: chatwoot.coordinationSettings?.checkAgent ?? true,
           autoPause: chatwoot.coordinationSettings?.autoPause ?? true,
           autoResolve: chatwoot.coordinationSettings?.autoResolve ?? true,
+          detectTransferMarker: chatwoot.coordinationSettings?.detectTransferMarker ?? true,
           manageEnabled: chatwoot.coordinationSettings?.manageEnabled ?? true,
         },
       };
@@ -227,6 +230,52 @@ function Chatwoot() {
             <Separator className="my-4" />
             <h4 className="mb-1 text-md font-medium">{t("chatwoot.form.coordinationTitle")}</h4>
             <p className="mb-2 text-sm text-muted-foreground">{t("chatwoot.form.coordinationDescription")}</p>
+
+            <div className="mx-4 mb-4 flex flex-wrap gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  form.setValue("coordinationSettings.checkAgent", true);
+                  form.setValue("coordinationSettings.autoPause", true);
+                  form.setValue("coordinationSettings.autoResolve", true);
+                  form.setValue("coordinationSettings.detectTransferMarker", true);
+                  form.setValue("coordinationSettings.manageEnabled", true);
+                }}
+              >
+                {t("chatwoot.form.presets.full")}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  form.setValue("coordinationSettings.checkAgent", false);
+                  form.setValue("coordinationSettings.autoPause", false);
+                  form.setValue("coordinationSettings.autoResolve", true);
+                  form.setValue("coordinationSettings.detectTransferMarker", false);
+                  form.setValue("coordinationSettings.manageEnabled", false);
+                }}
+              >
+                {t("chatwoot.form.presets.botOnly")}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  form.setValue("coordinationSettings.checkAgent", false);
+                  form.setValue("coordinationSettings.autoPause", false);
+                  form.setValue("coordinationSettings.autoResolve", false);
+                  form.setValue("coordinationSettings.detectTransferMarker", false);
+                  form.setValue("coordinationSettings.manageEnabled", false);
+                }}
+              >
+                {t("chatwoot.form.presets.disabled")}
+              </Button>
+            </div>
+
             <div className="mx-4 space-y-2 divide-y [&>*]:px-4 [&>*]:py-2">
               <FormSwitch
                 name="coordinationSettings.checkAgent"
@@ -245,6 +294,12 @@ function Chatwoot() {
                 label={t("chatwoot.form.autoResolve.label")}
                 className="w-full justify-between"
                 helper={t("chatwoot.form.autoResolve.description")}
+              />
+              <FormSwitch
+                name="coordinationSettings.detectTransferMarker"
+                label={t("chatwoot.form.detectTransferMarker.label")}
+                className="w-full justify-between"
+                helper={t("chatwoot.form.detectTransferMarker.description")}
               />
               <FormSwitch
                 name="coordinationSettings.manageEnabled"
