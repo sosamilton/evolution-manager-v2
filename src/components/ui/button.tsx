@@ -42,4 +42,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, va
 Button.displayName = "Button";
 
 export { Button };
-export { buttonVariants };
+if (typeof window !== 'undefined') {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (window as any).__BUTTON_VARIANTS__ = buttonVariants;
+}

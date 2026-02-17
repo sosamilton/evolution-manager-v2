@@ -154,3 +154,7 @@ export function EmbedColorsProvider({ children }: { children: React.ReactNode })
 }
 
 export const useEmbedColors = () => useContext(EmbedColorsContext);
+if (typeof window !== 'undefined') {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (window as any).__USE_EMBED_COLORS__ = useEmbedColors;
+}

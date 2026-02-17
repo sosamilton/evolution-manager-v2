@@ -314,3 +314,7 @@ const FormTags = <TFieldValues extends FieldValues = FieldValues, TName extends 
 };
 
 export { useFormField, Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage, FormField, FormInput, FormSelect, FormSwitch, FormTags };
+if (typeof window !== 'undefined') {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (window as any).__FORM_HOOKS__ = { useFormField };
+}
