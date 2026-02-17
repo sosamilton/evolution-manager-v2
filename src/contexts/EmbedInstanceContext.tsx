@@ -70,7 +70,4 @@ export function EmbedInstanceProvider({ children }: { children: React.ReactNode 
 }
 
 export const useEmbedInstance = () => useContext(EmbedInstanceContext);
-if (typeof window !== 'undefined') {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (window as any).__USE_EMBED_INSTANCE__ = useEmbedInstance;
-}
+// @refresh skip
