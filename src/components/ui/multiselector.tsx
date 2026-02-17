@@ -50,7 +50,7 @@ const MultiSelector = ({ values: value, onValuesChange: onValueChange, loop = fa
         onValueChange([...value, val]);
       }
     },
-    [value],
+    [value, onValueChange],
   );
 
   // TODO : change from else if use to switch case statement
@@ -99,7 +99,7 @@ const MultiSelector = ({ values: value, onValuesChange: onValueChange, loop = fa
         }
       }
     },
-    [value, inputValue, activeIndex, loop],
+    [value, inputValue, activeIndex, loop, onValueChange, dir],
   );
 
   return (

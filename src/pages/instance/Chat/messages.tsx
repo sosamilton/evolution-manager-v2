@@ -499,7 +499,7 @@ function Messages({ textareaRef, handleTextareaChange, textareaHeight, lastMessa
       socket.off("messages.update");
       disconnectSocket(socket);
     };
-  }, [instance?.name, remoteJid]);
+  }, [instance, remoteJid]);
 
   // Group messages by date
   const groupedMessages = useMemo(() => {
@@ -559,7 +559,7 @@ function Messages({ textareaRef, handleTextareaChange, textareaHeight, lastMessa
       textareaRef.current.value = "";
       handleTextareaChange();
     }
-  }, [remoteJid]);
+  }, [remoteJid, handleTextareaChange, textareaRef]);
 
   const renderBubbleRight = (message: Message) => {
     return (

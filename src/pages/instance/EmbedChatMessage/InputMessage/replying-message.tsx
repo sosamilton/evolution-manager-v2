@@ -126,12 +126,10 @@ const ReplyingMessage = ({ chat }: { chat?: Contact }) => {
       return "Você";
     }
 
-    if (
-      false && // Group messages not supported
-      "Group Member"
-    ) {
-      return "Group Member";
-    }
+    // Group messages not supported yet
+    // if (groupMessage) {
+    //   return "Group Member";
+    // }
 
     return chat?.pushName;
   };

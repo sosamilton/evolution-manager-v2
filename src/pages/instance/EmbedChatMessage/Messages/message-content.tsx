@@ -41,8 +41,6 @@ export function MessageContent({ message, quotedMessage, chat, fromMe, onQuoteCl
   const renderParticipantName = () => {
     // Se o participante não existe ou a mensagem é minha, não renderiza o nome
     // Group messages not supported yet
-    return null;
-
     return <span className="text-xs font-bold text-blue-600">{"Group Member"}</span>;
   };
 

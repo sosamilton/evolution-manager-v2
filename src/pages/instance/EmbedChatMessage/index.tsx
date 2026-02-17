@@ -108,7 +108,7 @@ function EmbedChatMessage() {
     return () => {
       isSubscribed = false;
     };
-  }, [activeInstance?.name, tokenFromUrl]);
+  }, [activeInstance, tokenFromUrl]);
 
   useEffect(() => {
     if (!activeInstance) return;

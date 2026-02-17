@@ -143,7 +143,7 @@ function Chat() {
       socket.off("send.message");
       disconnectSocket(socket);
     };
-  }, [instance?.name]);
+  }, [instance]);
 
   const scrollToBottom = useCallback(() => {
     if (lastMessageRef.current) {
